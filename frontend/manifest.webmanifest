@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "FungsiKu – Relasi & Fungsi",
+  "short_name": "FungsiKu",
+  "description": "Belajar relasi dan fungsi SMP kelas VIII secara bertahap, visual, dan interaktif.",
+  "lang": "id",
+  "dir": "ltr",
+  "start_url": "/#/beranda",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F8FAFC",
+  "theme_color": "#2563EB",
+  "categories": ["education"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

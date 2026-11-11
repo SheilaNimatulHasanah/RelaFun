@@ -1,0 +1,15 @@
+# File yang TIDAK ikut diunggah ke Vercel.
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+ekspor/
+backend/tests/
+docs/
+scripts/
+supabase/

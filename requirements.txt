@@ -1,0 +1,4 @@
+# Library yang dibutuhkan aplikasi saat berjalan (dipasang otomatis oleh Vercel).
+flask>=3.0,<4
+python-dotenv>=1.0,<2
+supabase>=2.9,<3

@@ -1,0 +1,3 @@
+# Library tambahan untuk pengembangan & pengujian di laptop (TIDAK dipasang di Vercel).
+-r requirements.txt
+pytest>=8,<9

@@ -1,0 +1,735 @@
+{
+  "versi": 1,
+  "keterangan": "Bank soal FungsiKu. Dipakai frontend (umpan balik latihan) dan backend (penilaian kuis). Tipe: angka, pilihan, himpunan, buat_relasi, perbaiki_fungsi, rumus, isian, sorot.",
+  "soal": [
+    {
+      "id": "m0-l1", "modul": 0, "jenis": "latihan", "tipe": "angka",
+      "teks": "Hitung: 2 · (−3) + 5",
+      "kunci": -1,
+      "hint": [
+        "Kerjakan perkalian dulu, baru penjumlahan.",
+        "2 · (−3) = −6. Positif kali negatif hasilnya negatif.",
+        "Contoh serupa: 3 · (−2) + 4 = −6 + 4 = −2"
+      ],
+      "pembahasan": "2 · (−3) + 5 = −6 + 5 = −1"
+    },
+    {
+      "id": "m0-l2", "modul": 0, "jenis": "latihan", "tipe": "angka",
+      "teks": "Hitung: −4 − 3",
+      "kunci": -7,
+      "hint": [
+        "Mengurangi 3 artinya bergerak 3 langkah ke kiri pada garis bilangan.",
+        "Mulai dari −4, lalu mundur 3 langkah.",
+        "Contoh serupa: −2 − 5 = −7"
+      ],
+      "pembahasan": "Dari −4 mundur 3 langkah: −5, −6, −7. Jadi −4 − 3 = −7"
+    },
+    {
+      "id": "m0-l3", "modul": 0, "jenis": "latihan", "tipe": "angka",
+      "teks": "Jika x = −2, berapa nilai 3x − 1?",
+      "kunci": -7,
+      "hint": [
+        "Ganti x dengan (−2). Tulis di dalam kurung!",
+        "3x − 1 menjadi 3 · (−2) − 1",
+        "Contoh serupa: jika x = −1, maka 2x + 3 = 2 · (−1) + 3 = −2 + 3 = 1"
+      ],
+      "pembahasan": "3 · (−2) − 1 = −6 − 1 = −7"
+    },
+    {
+      "id": "m0-l4", "modul": 0, "jenis": "latihan", "tipe": "isian",
+      "teks": "Selesaikan dengan eliminasi: kurangkan persamaan (1) dari persamaan (2).",
+      "data": {
+        "baris": [
+          "(2)   4a + b = 11",
+          "(1)   2a + b = 5",
+          "(2) − (1):   {0}a = {1}",
+          "a = {2}"
+        ]
+      },
+      "kunci": [2, 6, 3],
+      "hint": [
+        "b − b = 0, jadi b hilang.",
+        "4a − 2a = 2a dan 11 − 5 = 6.",
+        "Jika 2a = 6, bagi kedua ruas dengan 2."
+      ],
+      "pembahasan": "4a − 2a = 2a dan 11 − 5 = 6, jadi 2a = 6 dan a = 3"
+    },
+    {
+      "id": "m0-k1", "modul": 0, "jenis": "kuis", "tipe": "angka",
+      "teks": "Hitung: −5 + 2 · 4",
+      "kunci": 3,
+      "pembahasan": "Kalikan dulu: 2 · 4 = 8. Lalu −5 + 8 = 3"
+    },
+    {
+      "id": "m0-k2", "modul": 0, "jenis": "kuis", "tipe": "angka",
+      "teks": "Jika x = −3, berapa nilai −2x + 1?",
+      "kunci": 7,
+      "pembahasan": "−2 · (−3) + 1 = 6 + 1 = 7 (negatif kali negatif hasilnya positif)"
+    },
+    {
+      "id": "m0-k3", "modul": 0, "jenis": "kuis", "tipe": "angka",
+      "teks": "Diketahui 3a + b = 10 dan a + b = 4. Berapa nilai a?",
+      "kunci": 3,
+      "pembahasan": "Kurangkan: (3a + b) − (a + b) = 10 − 4 → 2a = 6 → a = 3"
+    },
+
+    {
+      "id": "m1-l1", "modul": 1, "jenis": "latihan", "tipe": "buat_relasi",
+      "teks": "Buat relasi \"makanan favorit\" dari himpunan Teman ke himpunan Makanan. Ani suka bakso. Budi suka mi ayam. Citra suka bakso. Dodi suka nasi goreng.",
+      "data": {
+        "diagram": {
+          "A": { "nama": "Teman", "anggota": ["Ani", "Budi", "Citra", "Dodi"] },
+          "B": { "nama": "Makanan", "anggota": ["Bakso", "Mi ayam", "Nasi goreng", "Soto"] },
+          "pasangan": []
+        }
+      },
+      "kunci": [["Ani", "Bakso"], ["Budi", "Mi ayam"], ["Citra", "Bakso"], ["Dodi", "Nasi goreng"]],
+      "hint": [
+        "Baca satu kalimat, lalu tarik satu panah.",
+        "Panah selalu berangkat dari Teman (A) menuju Makanan (B).",
+        "\"Ani suka bakso\" → tarik panah dari Ani ke Bakso."
+      ],
+      "pembahasan": "Ani → Bakso, Budi → Mi ayam, Citra → Bakso, Dodi → Nasi goreng. Soto tidak dipilih siapa pun, dan itu boleh."
+    },
+    {
+      "id": "m1-l2", "modul": 1, "jenis": "latihan", "tipe": "buat_relasi",
+      "teks": "Buat relasi \"setengah dari\" dari A ke B. Kalimat dibaca: \"(anggota A) adalah setengah dari (anggota B)\".",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["2", "3", "4", "6"] },
+          "pasangan": []
+        }
+      },
+      "kunci": [["1", "2"], ["2", "4"], ["3", "6"]],
+      "hint": [
+        "Setengah dari 2 adalah 1. Jadi \"1 adalah setengah dari 2\".",
+        "Untuk tiap anggota A, cari bilangan di B yang besarnya dua kali lipat.",
+        "1 → 2 sudah benar. Sekarang cari pasangan untuk 2 dan 3."
+      ],
+      "pembahasan": "1 → 2, 2 → 4, 3 → 6. Angka 3 di B tidak punya pasangan, dan itu boleh."
+    },
+    {
+      "id": "m1-l3", "modul": 1, "jenis": "latihan", "tipe": "buat_relasi",
+      "teks": "Buat relasi \"faktor dari\" dari A ke B. Kalimat dibaca: \"(anggota A) adalah faktor dari (anggota B)\".",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["3", "4", "5"] },
+          "B": { "nama": "B", "anggota": ["6", "8", "10", "12"] },
+          "pasangan": []
+        }
+      },
+      "kunci": [["3", "6"], ["3", "12"], ["4", "8"], ["4", "12"], ["5", "10"]],
+      "hint": [
+        "\"3 adalah faktor dari 6\" artinya 6 habis dibagi 3.",
+        "Cek 3: 6 ÷ 3 = 2 ✓, 8 ÷ 3 ✗, 10 ÷ 3 ✗, 12 ÷ 3 = 4 ✓.",
+        "Ulangi untuk 4 dan 5. Totalnya ada 5 panah."
+      ],
+      "pembahasan": "3 → 6, 3 → 12, 4 → 8, 4 → 12, 5 → 10."
+    },
+    {
+      "id": "m1-l4", "modul": 1, "jenis": "latihan", "tipe": "buat_relasi",
+      "teks": "Buat relasi \"kelipatan dari\" dari A ke B. Kalimat dibaca: \"(anggota A) adalah kelipatan dari (anggota B)\". Contoh: 6 adalah kelipatan dari 2 → panah dari 6 ke 2.",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["6", "9", "10"] },
+          "B": { "nama": "B", "anggota": ["2", "3", "5"] },
+          "pasangan": []
+        }
+      },
+      "kunci": [["6", "2"], ["6", "3"], ["9", "3"], ["10", "2"], ["10", "5"]],
+      "hint": [
+        "Panah tetap dari A ke B, walaupun anggota A lebih besar.",
+        "\"6 kelipatan dari 3\" benar karena 6 = 3 × 2.",
+        "Cek setiap anggota A dengan 2, 3, dan 5. Totalnya ada 5 panah."
+      ],
+      "pembahasan": "6 → 2, 6 → 3, 9 → 3, 10 → 2, 10 → 5."
+    },
+    {
+      "id": "m1-l5", "modul": 1, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Relasi \"faktor dari\" dari A = {2, 5} ke B = {10, 15}. Pasangan manakah yang BENAR?",
+      "opsi": ["2 → 15", "5 → 10", "10 → 2", "15 → 2"],
+      "kunci": 1,
+      "hint": [
+        "Panah harus berangkat dari anggota A (2 atau 5).",
+        "Jadi pilihan \"10 → 2\" dan \"15 → 2\" arahnya terbalik.",
+        "Apakah 15 habis dibagi 2? Apakah 10 habis dibagi 5?"
+      ],
+      "pembahasan": "5 adalah faktor dari 10 (10 ÷ 5 = 2), jadi 5 → 10 benar. 15 tidak habis dibagi 2."
+    },
+    {
+      "id": "m1-k1", "modul": 1, "jenis": "kuis", "tipe": "buat_relasi",
+      "teks": "Buat relasi \"kurang dari\" dari A ke B. Kalimat dibaca: \"(anggota A) kurang dari (anggota B)\".",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["2", "4", "6"] },
+          "B": { "nama": "B", "anggota": ["3", "5"] },
+          "pasangan": []
+        }
+      },
+      "kunci": [["2", "3"], ["2", "5"], ["4", "5"]],
+      "pembahasan": "2 < 3, 2 < 5, 4 < 5. Angka 6 tidak kurang dari 3 maupun 5."
+    },
+    {
+      "id": "m1-k2", "modul": 1, "jenis": "kuis", "tipe": "pilihan",
+      "teks": "Relasi \"ibu kota dari\" dari himpunan Kota ke himpunan Provinsi. Panah manakah yang benar?",
+      "opsi": ["Jawa Barat → Bandung", "Bandung → Jawa Barat", "Bandung → Jawa Tengah", "Jawa Barat → Jawa Tengah"],
+      "kunci": 1,
+      "pembahasan": "Panah berangkat dari Kota ke Provinsi: \"Bandung adalah ibu kota dari Jawa Barat\"."
+    },
+    {
+      "id": "m1-k3", "modul": 1, "jenis": "kuis", "tipe": "pilihan",
+      "teks": "Relasi \"kelipatan dari\" dari A = {8} ke B = {2, 3, 4}. Ada berapa panah?",
+      "opsi": ["0", "1", "2", "3"],
+      "kunci": 2,
+      "pembahasan": "8 kelipatan dari 2 dan 8 kelipatan dari 4. Jadi ada 2 panah."
+    },
+
+    {
+      "id": "m2-l1", "modul": 2, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Apakah relasi dari A ke B ini merupakan fungsi?",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["p", "q", "r"] },
+          "pasangan": [["1", "p"], ["2", "q"], ["3", "r"]]
+        }
+      },
+      "opsi": ["Ya, fungsi", "Bukan, ada anggota A yang jomblo", "Bukan, ada anggota A yang mendua"],
+      "kunci": 0,
+      "hint": [
+        "Periksa anggota A satu per satu.",
+        "Hitung banyak panah yang keluar dari 1, dari 2, lalu dari 3.",
+        "Fungsi: setiap anggota A punya TEPAT SATU panah."
+      ],
+      "pembahasan": "Setiap anggota A punya tepat satu pasangan. Tidak ada yang jomblo, tidak ada yang mendua → fungsi."
+    },
+    {
+      "id": "m2-l2", "modul": 2, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Apakah relasi dari A ke B ini merupakan fungsi?",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["p", "q", "r"] },
+          "pasangan": [["1", "p"], ["2", "p"], ["2", "q"], ["3", "r"]]
+        }
+      },
+      "opsi": ["Ya, fungsi", "Bukan, ada anggota A yang jomblo", "Bukan, ada anggota A yang mendua"],
+      "kunci": 2,
+      "hint": [
+        "Hitung panah yang keluar dari setiap anggota A.",
+        "Lihat angka 2. Ada berapa panah yang keluar darinya?",
+        "Anggota A yang punya dua pasangan disebut \"mendua\"."
+      ],
+      "pembahasan": "Angka 2 punya dua pasangan (p dan q), jadi 2 mendua → bukan fungsi."
+    },
+    {
+      "id": "m2-l3", "modul": 2, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Apakah relasi dari A ke B ini merupakan fungsi?",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["p", "q", "r"] },
+          "pasangan": [["1", "p"], ["2", "q"]]
+        }
+      },
+      "opsi": ["Ya, fungsi", "Bukan, ada anggota A yang jomblo", "Bukan, ada anggota A yang mendua"],
+      "kunci": 1,
+      "hint": [
+        "Periksa apakah semua anggota A punya panah.",
+        "Lihat angka 3.",
+        "Anggota A yang tidak punya pasangan disebut \"jomblo\"."
+      ],
+      "pembahasan": "Angka 3 tidak punya pasangan (jomblo) → bukan fungsi."
+    },
+    {
+      "id": "m2-l4", "modul": 2, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Semua panah menuju p. Apakah relasi ini fungsi?",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["p", "q", "r"] },
+          "pasangan": [["1", "p"], ["2", "p"], ["3", "p"]]
+        }
+      },
+      "opsi": ["Ya, fungsi", "Bukan, ada anggota A yang jomblo", "Bukan, ada anggota A yang mendua"],
+      "kunci": 0,
+      "hint": [
+        "Aturan jomblo dan mendua hanya berlaku untuk anggota A.",
+        "Setiap anggota A punya berapa panah?",
+        "Anggota B boleh dipilih banyak anggota A, dan boleh tidak dipilih sama sekali."
+      ],
+      "pembahasan": "Setiap anggota A punya tepat satu pasangan → fungsi. Anggota B boleh dipilih lebih dari sekali (p) dan boleh tidak dipilih (q, r)."
+    },
+    {
+      "id": "m2-l5", "modul": 2, "jenis": "latihan", "tipe": "perbaiki_fungsi",
+      "teks": "Relasi \"warna kesukaan\" ini BUKAN fungsi. Perbaiki panahnya sampai menjadi fungsi. Ketuk panah untuk menghapus, tarik panah baru untuk menambah.",
+      "data": {
+        "diagram": {
+          "A": { "nama": "Siswa", "anggota": ["Ani", "Budi", "Citra"] },
+          "B": { "nama": "Warna", "anggota": ["Merah", "Biru", "Hijau"] },
+          "pasangan": [["Ani", "Merah"], ["Ani", "Biru"], ["Budi", "Hijau"]]
+        }
+      },
+      "kunci": "fungsi",
+      "hint": [
+        "Cari anggota A yang mendua dan yang jomblo.",
+        "Ani mendua (dua panah). Citra jomblo (tanpa panah).",
+        "Hapus salah satu panah Ani, lalu tarik satu panah dari Citra."
+      ],
+      "pembahasan": "Contoh perbaikan: Ani → Merah, Budi → Hijau, Citra → Biru. Setiap siswa punya tepat satu warna."
+    },
+    {
+      "id": "m2-l6", "modul": 2, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Himpunan pasangan berurutan {(1, 2), (2, 4), (3, 6), (1, 5)} adalah relasi dari A = {1, 2, 3}. Apakah ini fungsi?",
+      "opsi": ["Ya, fungsi", "Bukan, 1 mendua", "Bukan, ada anggota A yang jomblo"],
+      "kunci": 1,
+      "hint": [
+        "Angka pertama dalam (x, y) adalah anggota A.",
+        "Hitung berapa kali setiap anggota A muncul di posisi pertama.",
+        "Angka 1 muncul di (1, 2) dan (1, 5)."
+      ],
+      "pembahasan": "Angka 1 punya dua pasangan: 2 dan 5. Jadi 1 mendua → bukan fungsi."
+    },
+    {
+      "id": "m2-k1", "modul": 2, "jenis": "kuis", "tipe": "pilihan",
+      "teks": "Apakah relasi dari A ke B ini merupakan fungsi?",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["a", "b", "c", "d"] },
+          "B": { "nama": "B", "anggota": ["1", "2", "3"] },
+          "pasangan": [["a", "1"], ["b", "1"], ["c", "2"], ["d", "3"]]
+        }
+      },
+      "opsi": ["Ya, fungsi", "Bukan, ada anggota A yang jomblo", "Bukan, ada anggota A yang mendua"],
+      "kunci": 0,
+      "pembahasan": "Setiap anggota A punya tepat satu pasangan → fungsi."
+    },
+    {
+      "id": "m2-k2", "modul": 2, "jenis": "kuis", "tipe": "pilihan",
+      "teks": "Apakah relasi dari A ke B ini merupakan fungsi?",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["a", "b", "c", "d"] },
+          "B": { "nama": "B", "anggota": ["1", "2", "3"] },
+          "pasangan": [["a", "1"], ["b", "2"], ["c", "3"]]
+        }
+      },
+      "opsi": ["Ya, fungsi", "Bukan, ada anggota A yang jomblo", "Bukan, ada anggota A yang mendua"],
+      "kunci": 1,
+      "pembahasan": "d tidak punya pasangan (jomblo) → bukan fungsi."
+    },
+    {
+      "id": "m2-k3", "modul": 2, "jenis": "kuis", "tipe": "perbaiki_fungsi",
+      "teks": "Perbaiki relasi ini agar menjadi fungsi dari A ke B.",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["4", "5", "6"] },
+          "pasangan": [["1", "4"], ["2", "5"], ["2", "6"]]
+        }
+      },
+      "kunci": "fungsi",
+      "pembahasan": "2 mendua dan 3 jomblo. Hapus satu panah dari 2 dan beri 3 satu panah."
+    },
+    {
+      "id": "m2-k4", "modul": 2, "jenis": "kuis", "tipe": "pilihan",
+      "teks": "Relasi {(2, 5), (3, 5), (4, 5)} dari A = {2, 3, 4} ke B = {5, 6}. Apakah ini fungsi?",
+      "opsi": ["Ya, fungsi", "Bukan, ada anggota A yang mendua", "Bukan, ada anggota A yang jomblo"],
+      "kunci": 0,
+      "pembahasan": "2, 3, dan 4 masing-masing punya tepat satu pasangan (semuanya 5) → fungsi."
+    },
+
+    {
+      "id": "m3-l1", "modul": 3, "jenis": "latihan", "tipe": "himpunan",
+      "teks": "Tentukan daerah hasil (range) fungsi pada diagram. Tulis anggotanya dipisah koma, contoh: 2, 4, 6",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["1", "3", "5", "7", "9"] },
+          "pasangan": [["1", "1"], ["2", "3"], ["3", "5"]]
+        }
+      },
+      "kunci": [1, 3, 5],
+      "hint": [
+        "Range = anggota B yang KENA panah.",
+        "Lihat ujung setiap panah di himpunan B.",
+        "7 dan 9 tidak kena panah, jadi bukan anggota range."
+      ],
+      "pembahasan": "Panah menuju 1, 3, dan 5. Range = {1, 3, 5}."
+    },
+    {
+      "id": "m3-l2", "modul": 3, "jenis": "latihan", "tipe": "himpunan",
+      "teks": "Fungsi g = {(−1, 2), (0, 4), (1, 6), (2, 8)}. Tentukan domainnya.",
+      "kunci": [-1, 0, 1, 2],
+      "hint": [
+        "Domain = semua anggota A (input).",
+        "Pada pasangan (x, y), domain diambil dari x, yaitu angka pertama.",
+        "Angka pertamanya: −1, 0, ..."
+      ],
+      "pembahasan": "Angka pertama setiap pasangan: −1, 0, 1, 2. Domain = {−1, 0, 1, 2}."
+    },
+    {
+      "id": "m3-l3", "modul": 3, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Manakah kodomain fungsi pada diagram?",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["1", "2", "3"] },
+          "B": { "nama": "B", "anggota": ["1", "3", "5", "7", "9"] },
+          "pasangan": [["1", "1"], ["2", "3"], ["3", "5"]]
+        }
+      },
+      "opsi": ["{1, 2, 3}", "{1, 3, 5}", "{1, 3, 5, 7, 9}", "{7, 9}"],
+      "kunci": 2,
+      "hint": [
+        "Kodomain = SEMUA anggota himpunan B.",
+        "Kodomain tidak peduli kena panah atau tidak.",
+        "Bedanya: range hanya yang kena panah, kodomain semuanya."
+      ],
+      "pembahasan": "Kodomain = seluruh himpunan B = {1, 3, 5, 7, 9}. Range = {1, 3, 5}."
+    },
+    {
+      "id": "m3-l4", "modul": 3, "jenis": "latihan", "tipe": "himpunan",
+      "teks": "Grafik menunjukkan fungsi h dengan domain {1, 2, 3, 4}. Tentukan range h.",
+      "data": { "grafik": { "titik": [[1, 2], [2, 4], [3, 6], [4, 8]] } },
+      "kunci": [2, 4, 6, 8],
+      "hint": [
+        "Pada grafik, range dibaca dari sumbu tegak (sumbu-y).",
+        "Lihat ketinggian setiap titik.",
+        "Titik (1, 2) berarti x = 1 dan h(1) = 2."
+      ],
+      "pembahasan": "Ketinggian titik-titiknya 2, 4, 6, 8. Range = {2, 4, 6, 8}."
+    },
+    {
+      "id": "m3-l5", "modul": 3, "jenis": "latihan", "tipe": "angka",
+      "teks": "Dari tabel fungsi f, berapa nilai f(3)?",
+      "data": { "tabel": { "x": [1, 2, 3, 4], "fx": [3, 5, 7, 9] } },
+      "kunci": 7,
+      "hint": [
+        "f(3) artinya hasil (output) ketika x = 3.",
+        "Cari kolom x = 3.",
+        "Baca angka di baris f(x) pada kolom yang sama."
+      ],
+      "pembahasan": "Pada kolom x = 3, nilai f(x) = 7. Jadi f(3) = 7."
+    },
+    {
+      "id": "m3-k1", "modul": 3, "jenis": "kuis", "tipe": "himpunan",
+      "teks": "Fungsi f = {(1, 5), (2, 5), (3, 6), (4, 7)}. Tentukan range f.",
+      "kunci": [5, 6, 7],
+      "pembahasan": "Angka kedua: 5, 5, 6, 7. Angka yang sama ditulis sekali. Range = {5, 6, 7}."
+    },
+    {
+      "id": "m3-k2", "modul": 3, "jenis": "kuis", "tipe": "pilihan",
+      "teks": "Domain fungsi pada diagram adalah ...",
+      "data": {
+        "diagram": {
+          "A": { "nama": "A", "anggota": ["a", "b", "c"] },
+          "B": { "nama": "B", "anggota": ["1", "2", "3", "4"] },
+          "pasangan": [["a", "2"], ["b", "4"], ["c", "2"]]
+        }
+      },
+      "opsi": ["{a, b, c}", "{1, 2, 3, 4}", "{2, 4}", "{1, 3}"],
+      "kunci": 0,
+      "pembahasan": "Domain = semua anggota A = {a, b, c}."
+    },
+    {
+      "id": "m3-k3", "modul": 3, "jenis": "kuis", "tipe": "himpunan",
+      "teks": "Tentukan domain fungsi pada grafik.",
+      "data": { "grafik": { "titik": [[-2, 1], [-1, 2], [0, 3], [1, 4]] } },
+      "kunci": [-2, -1, 0, 1],
+      "pembahasan": "Domain dibaca dari sumbu mendatar (sumbu-x): −2, −1, 0, 1."
+    },
+
+    {
+      "id": "m4-l1", "modul": 4, "jenis": "latihan", "tipe": "angka",
+      "teks": "Fungsi f(x) = 3x − 2. Hitung f(−2).",
+      "kunci": -8,
+      "hint": [
+        "Ganti x dengan (−2). Pakai kurung!",
+        "f(−2) = 3 · (−2) − 2",
+        "3 · (−2) = −6. Lalu −6 − 2 = ..."
+      ],
+      "pembahasan": "f(−2) = 3 · (−2) − 2 = −6 − 2 = −8"
+    },
+    {
+      "id": "m4-l2", "modul": 4, "jenis": "latihan", "tipe": "angka",
+      "teks": "Fungsi f(x) = −2x + 5. Hitung f(3).",
+      "kunci": -1,
+      "hint": [
+        "Ganti x dengan 3.",
+        "f(3) = −2 · 3 + 5",
+        "−2 · 3 = −6. Lalu −6 + 5 = ..."
+      ],
+      "pembahasan": "f(3) = −2 · 3 + 5 = −6 + 5 = −1"
+    },
+    {
+      "id": "m4-l3", "modul": 4, "jenis": "latihan", "tipe": "angka",
+      "teks": "Fungsi f(x) = 4x + 1. Jika OUTPUT-nya 13, berapa INPUT x?",
+      "kunci": 3,
+      "hint": [
+        "Kali ini yang diketahui f(x) = 13. Yang dicari x.",
+        "Tulis: 4x + 1 = 13",
+        "4x = 13 − 1 = 12, lalu bagi dengan 4."
+      ],
+      "pembahasan": "4x + 1 = 13 → 4x = 12 → x = 3. Cek: f(3) = 4 · 3 + 1 = 13 ✓"
+    },
+    {
+      "id": "m4-l4", "modul": 4, "jenis": "latihan", "tipe": "isian",
+      "teks": "Lengkapi tabel fungsi f(x) = 2x + 3.",
+      "data": {
+        "baris": [
+          "x = −1   →   f(−1) = 2 · (−1) + 3 = {0}",
+          "x = 0    →   f(0) = 2 · 0 + 3 = {1}",
+          "x = 2    →   f(2) = 2 · 2 + 3 = {2}"
+        ]
+      },
+      "kunci": [1, 3, 7],
+      "hint": [
+        "Kerjakan satu baris dulu.",
+        "2 · (−1) = −2, lalu −2 + 3 = ...",
+        "2 · 0 = 0 dan 2 · 2 = 4."
+      ],
+      "pembahasan": "f(−1) = −2 + 3 = 1, f(0) = 0 + 3 = 3, f(2) = 4 + 3 = 7"
+    },
+    {
+      "id": "m4-l5", "modul": 4, "jenis": "latihan", "tipe": "rumus",
+      "teks": "Sebuah mesin fungsi mengubah 1 → 5, 2 → 7, 3 → 9. Aturannya f(x) = ax + b. Tentukan a dan b.",
+      "data": { "titik": [[1, 5], [2, 7], [3, 9]] },
+      "kunci": { "a": 2, "b": 3 },
+      "hint": [
+        "Setiap input naik 1, output naik berapa? Itulah a.",
+        "Output naik 2 setiap kali, jadi a = 2.",
+        "f(1) = 2 · 1 + b = 5, jadi b = ..."
+      ],
+      "pembahasan": "Output naik 2 setiap input naik 1 → a = 2. f(1) = 2 + b = 5 → b = 3. Jadi f(x) = 2x + 3."
+    },
+    {
+      "id": "m4-k1", "modul": 4, "jenis": "kuis", "tipe": "angka",
+      "teks": "Fungsi f(x) = 5x − 4. Hitung f(−1).",
+      "kunci": -9,
+      "pembahasan": "f(−1) = 5 · (−1) − 4 = −5 − 4 = −9"
+    },
+    {
+      "id": "m4-k2", "modul": 4, "jenis": "kuis", "tipe": "angka",
+      "teks": "Fungsi f(x) = −3x + 2. Hitung f(−2).",
+      "kunci": 8,
+      "pembahasan": "f(−2) = −3 · (−2) + 2 = 6 + 2 = 8"
+    },
+    {
+      "id": "m4-k3", "modul": 4, "jenis": "kuis", "tipe": "pilihan",
+      "teks": "Diketahui f(4) = 11. Manakah yang merupakan INPUT (x)?",
+      "opsi": ["4", "11", "f", "4 dan 11"],
+      "kunci": 0,
+      "pembahasan": "f(4) = 11 berarti input x = 4 menghasilkan output 11."
+    },
+    {
+      "id": "m4-k4", "modul": 4, "jenis": "kuis", "tipe": "angka",
+      "teks": "Fungsi f(x) = 2x − 6. Jika f(x) = 0, berapa nilai x?",
+      "kunci": 3,
+      "pembahasan": "2x − 6 = 0 → 2x = 6 → x = 3"
+    },
+
+    {
+      "id": "m5-l1", "modul": 5, "jenis": "latihan", "tipe": "isian",
+      "teks": "Diketahui f(x) = ax + b, f(1) = 5, dan f(3) = 9. Lengkapi langkahnya.",
+      "data": {
+        "baris": [
+          "f(1) = 5   →   a + b = 5   … (1)",
+          "f(3) = 9   →   3a + b = 9   … (2)",
+          "(2) − (1):   2a = {0}",
+          "a = {1}",
+          "Substitusi a ke (1):   {2} + b = 5   →   b = {3}"
+        ],
+        "titik": [[1, 5], [3, 9]]
+      },
+      "kunci": [4, 2, 2, 3],
+      "hint": [
+        "3a − a = 2a dan 9 − 5 = 4.",
+        "2a = 4, jadi a = 4 ÷ 2.",
+        "a = 2, maka 2 + b = 5 → b = 3."
+      ],
+      "pembahasan": "2a = 4 → a = 2. Lalu 2 + b = 5 → b = 3. Jadi f(x) = 2x + 3."
+    },
+    {
+      "id": "m5-l2", "modul": 5, "jenis": "latihan", "tipe": "isian",
+      "teks": "Diketahui f(x) = ax + b, f(2) = 7, dan f(5) = 16. Lengkapi langkahnya.",
+      "data": {
+        "baris": [
+          "f(2) = 7   →   {0}a + b = 7   … (1)",
+          "f(5) = 16   →   {1}a + b = 16   … (2)",
+          "(2) − (1):   {2}a = {3}   →   a = {4}",
+          "Substitusi a ke (1):   b = {5}"
+        ],
+        "titik": [[2, 7], [5, 16]]
+      },
+      "kunci": [2, 5, 3, 9, 3, 1],
+      "hint": [
+        "f(2) berarti x = 2, jadi tulis 2a + b = 7.",
+        "5a − 2a = 3a dan 16 − 7 = 9.",
+        "a = 3, maka 2 · 3 + b = 7 → 6 + b = 7 → b = ..."
+      ],
+      "pembahasan": "2a + b = 7 dan 5a + b = 16 → 3a = 9 → a = 3 → b = 7 − 6 = 1. Jadi f(x) = 3x + 1."
+    },
+    {
+      "id": "m5-l3", "modul": 5, "jenis": "latihan", "tipe": "rumus",
+      "teks": "Diketahui f(x) = ax + b, f(1) = 1, dan f(3) = 7. Tentukan a dan b.",
+      "data": { "titik": [[1, 1], [3, 7]] },
+      "kunci": { "a": 3, "b": -2 },
+      "hint": [
+        "Tulis dua persamaan: a + b = 1 dan 3a + b = 7.",
+        "Kurangkan: 2a = 6.",
+        "a = 3, lalu 3 + b = 1 → b = 1 − 3."
+      ],
+      "pembahasan": "a + b = 1 dan 3a + b = 7 → 2a = 6 → a = 3 → b = 1 − 3 = −2. Jadi f(x) = 3x − 2."
+    },
+    {
+      "id": "m5-l4", "modul": 5, "jenis": "latihan", "tipe": "rumus",
+      "teks": "Diketahui f(x) = ax + b, f(−1) = 7, dan f(2) = 1. Tentukan a dan b.",
+      "data": { "titik": [[-1, 7], [2, 1]] },
+      "kunci": { "a": -2, "b": 5 },
+      "hint": [
+        "f(−1) = 7 → a · (−1) + b = 7 → −a + b = 7.",
+        "f(2) = 1 → 2a + b = 1. Kurangkan: 2a − (−a) = 3a dan 1 − 7 = −6.",
+        "3a = −6 → a = −2. Lalu 2 · (−2) + b = 1 → b = ..."
+      ],
+      "pembahasan": "−a + b = 7 dan 2a + b = 1 → 3a = −6 → a = −2 → −4 + b = 1 → b = 5. Jadi f(x) = −2x + 5."
+    },
+    {
+      "id": "m5-k1", "modul": 5, "jenis": "kuis", "tipe": "rumus",
+      "teks": "Diketahui f(x) = ax + b, f(2) = 1, dan f(4) = 7. Tentukan a dan b.",
+      "data": { "titik": [[2, 1], [4, 7]] },
+      "kunci": { "a": 3, "b": -5 },
+      "pembahasan": "2a + b = 1 dan 4a + b = 7 → 2a = 6 → a = 3 → 6 + b = 1 → b = −5."
+    },
+    {
+      "id": "m5-k2", "modul": 5, "jenis": "kuis", "tipe": "rumus",
+      "teks": "Diketahui f(x) = ax + b, f(0) = 4, dan f(2) = 10. Tentukan a dan b.",
+      "data": { "titik": [[0, 4], [2, 10]] },
+      "kunci": { "a": 3, "b": 4 },
+      "pembahasan": "f(0) = b = 4. Lalu 2a + 4 = 10 → a = 3."
+    },
+    {
+      "id": "m5-k3", "modul": 5, "jenis": "kuis", "tipe": "rumus",
+      "teks": "Diketahui f(x) = ax + b, f(−2) = −1, dan f(1) = 5. Tentukan a dan b.",
+      "data": { "titik": [[-2, -1], [1, 5]] },
+      "kunci": { "a": 2, "b": 3 },
+      "pembahasan": "−2a + b = −1 dan a + b = 5 → 3a = 6 → a = 2 → b = 3."
+    },
+
+    {
+      "id": "m6-l1", "modul": 6, "jenis": "latihan", "tipe": "sorot",
+      "teks": "Ketuk frasa dalam cerita, lalu tandai mana NILAI AWAL (b) dan mana TARIF PER SATUAN (a).",
+      "data": {
+        "bagian": [
+          { "t": "Tarif taksi: " },
+          { "id": "p1", "t": "biaya buka pintu Rp7.000" },
+          { "t": " ditambah " },
+          { "id": "p2", "t": "Rp4.000 per kilometer" },
+          { "t": ". Andi naik taksi sejauh " },
+          { "id": "p3", "t": "5 km" },
+          { "t": "." }
+        ]
+      },
+      "kunci": { "a": "p2", "b": "p1" },
+      "hint": [
+        "Nilai awal (b) dibayar SEKALI, berapa pun jaraknya.",
+        "Tarif per satuan (a) biasanya ditandai kata \"per\" atau \"setiap\".",
+        "\"5 km\" adalah x (input), bukan a atau b."
+      ],
+      "pembahasan": "b = Rp7.000 (buka pintu, sekali bayar). a = Rp4.000 per km. x = 5 km. Jadi f(x) = 4.000x + 7.000."
+    },
+    {
+      "id": "m6-l2", "modul": 6, "jenis": "latihan", "tipe": "angka",
+      "teks": "Tarif taksi f(x) = 4.000x + 7.000 (x = jarak dalam km). Berapa rupiah biaya untuk 5 km?",
+      "kunci": 27000,
+      "hint": [
+        "Ganti x dengan 5.",
+        "f(5) = 4.000 · 5 + 7.000",
+        "4.000 · 5 = 20.000. Lalu 20.000 + 7.000 = ..."
+      ],
+      "pembahasan": "f(5) = 4.000 · 5 + 7.000 = 20.000 + 7.000 = Rp27.000"
+    },
+    {
+      "id": "m6-l3", "modul": 6, "jenis": "latihan", "tipe": "sorot",
+      "teks": "Konteksnya berbeda, tetapi polanya sama. Tandai NILAI AWAL (b) dan TARIF PER SATUAN (a).",
+      "data": {
+        "bagian": [
+          { "t": "Sewa lapangan futsal " },
+          { "id": "p1", "t": "Rp100.000 per jam" },
+          { "t": " ditambah " },
+          { "id": "p2", "t": "biaya kebersihan Rp50.000" },
+          { "t": " yang dibayar sekali. Tim Budi bermain " },
+          { "id": "p3", "t": "2 jam" },
+          { "t": "." }
+        ]
+      },
+      "kunci": { "a": "p1", "b": "p2" },
+      "hint": [
+        "Mana yang dibayar sekali saja?",
+        "Mana yang ada kata \"per\"?",
+        "Urutan dalam kalimat bisa berbeda dengan soal taksi. Perhatikan maknanya."
+      ],
+      "pembahasan": "a = Rp100.000 per jam, b = Rp50.000 (sekali bayar). Jadi f(x) = 100.000x + 50.000, polanya sama dengan taksi."
+    },
+    {
+      "id": "m6-l4", "modul": 6, "jenis": "latihan", "tipe": "rumus",
+      "teks": "Sewa sepeda: 2 jam membayar Rp25.000, 5 jam membayar Rp49.000. Biayanya berbentuk f(x) = ax + b (x = lama sewa dalam jam). Tentukan a dan b.",
+      "data": { "titik": [[2, 25000], [5, 49000]] },
+      "kunci": { "a": 8000, "b": 9000 },
+      "hint": [
+        "Tulis dua persamaan: 2a + b = 25.000 dan 5a + b = 49.000.",
+        "Kurangkan: 3a = 24.000.",
+        "a = 8.000, lalu 2 · 8.000 + b = 25.000 → b = ..."
+      ],
+      "pembahasan": "3a = 24.000 → a = 8.000 (per jam). b = 25.000 − 16.000 = 9.000 (biaya tetap). f(x) = 8.000x + 9.000."
+    },
+    {
+      "id": "m6-l5", "modul": 6, "jenis": "latihan", "tipe": "pilihan",
+      "teks": "Pada sewa sepeda, f(x) = 8.000x + 9.000. Apa arti angka 9.000?",
+      "opsi": ["Biaya sewa per jam", "Biaya tetap yang dibayar sekali (nilai awal)", "Lama sewa", "Total biaya sewa 1 jam"],
+      "kunci": 1,
+      "hint": [
+        "9.000 adalah b pada f(x) = ax + b.",
+        "b tidak dikalikan dengan x (lama sewa).",
+        "Jadi 9.000 tetap dibayar walaupun lama sewanya berubah."
+      ],
+      "pembahasan": "9.000 adalah b, biaya tetap yang dibayar sekali. 8.000 adalah biaya per jam."
+    },
+    {
+      "id": "m6-k1", "modul": 6, "jenis": "kuis", "tipe": "sorot",
+      "teks": "Tandai NILAI AWAL (b) dan TARIF PER SATUAN (a).",
+      "data": {
+        "bagian": [
+          { "t": "Biaya parkir motor: " },
+          { "id": "p1", "t": "Rp2.000 saat masuk" },
+          { "t": ", lalu " },
+          { "id": "p2", "t": "Rp1.000 setiap jam" },
+          { "t": ". Rina parkir selama " },
+          { "id": "p3", "t": "3 jam" },
+          { "t": "." }
+        ]
+      },
+      "kunci": { "a": "p2", "b": "p1" },
+      "pembahasan": "b = Rp2.000 (sekali saat masuk), a = Rp1.000 setiap jam."
+    },
+    {
+      "id": "m6-k2", "modul": 6, "jenis": "kuis", "tipe": "angka",
+      "teks": "Biaya parkir f(x) = 1.000x + 2.000 (x = lama parkir dalam jam). Berapa rupiah biaya parkir 3 jam?",
+      "kunci": 5000,
+      "pembahasan": "f(3) = 1.000 · 3 + 2.000 = 3.000 + 2.000 = Rp5.000"
+    },
+    {
+      "id": "m6-k3", "modul": 6, "jenis": "kuis", "tipe": "rumus",
+      "teks": "Paket internet terdiri atas biaya langganan tetap dan biaya per GB. Pemakaian 2 GB membayar Rp23.000, pemakaian 4 GB membayar Rp41.000. Biayanya f(x) = ax + b (x = GB). Tentukan a dan b.",
+      "data": { "titik": [[2, 23000], [4, 41000]] },
+      "kunci": { "a": 9000, "b": 5000 },
+      "pembahasan": "2a + b = 23.000 dan 4a + b = 41.000 → 2a = 18.000 → a = 9.000 → b = 23.000 − 18.000 = 5.000."
+    },
+    {
+      "id": "m6-k4", "modul": 6, "jenis": "kuis", "tipe": "angka",
+      "teks": "Dengan biaya internet f(x) = 9.000x + 5.000, berapa GB yang bisa dipakai jika uangnya tepat Rp50.000?",
+      "kunci": 5,
+      "pembahasan": "9.000x + 5.000 = 50.000 → 9.000x = 45.000 → x = 5 GB."
+    }
+  ]
+}

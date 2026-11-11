@@ -1,0 +1,88 @@
+/* Token warna & ukuran FungsiKu. Komponen HANYA memakai variabel dari file ini. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Permukaan */
+  --latar: #F8FAFC;
+  --permukaan: #FFFFFF;
+  --permukaan-2: #F1F5F9;
+  --garis: #CBD5E1;
+  --garis-lembut: #E2E8F0;
+  --teks: #0F172A;
+  --teks-redup: #475569;
+  --utama: #2563EB;
+  --utama-teks: #FFFFFF;
+  --utama-lembut: #DBEAFE;
+  --fokus: #F59E0B;
+
+  /* Warna semantik (tetap di seluruh aplikasi) */
+  --warna-x: #2563EB;        /* input / x / domain */
+  --warna-x-lembut: #DBEAFE;
+  --warna-fx: #C2410C;       /* output / f(x) / range */
+  --warna-fx-lembut: #FFEDD5;
+  --warna-kodomain: #64748B;
+  --warna-a: #7C3AED;        /* koefisien a (per satuan) */
+  --warna-a-lembut: #EDE9FE;
+  --warna-b: #047857;        /* konstanta b (nilai awal) */
+  --warna-b-lembut: #D1FAE5;
+  --benar: #15803D;
+  --benar-lembut: #DCFCE7;
+  --salah: #B91C1C;
+  --salah-lembut: #FEE2E2;
+  --info-lembut: #E0F2FE;
+  --peringatan-lembut: #FEF3C7;
+
+  /* Warna pasangan panah (palet Okabe-Ito, ramah buta warna) */
+  --pasangan-1: #0072B2;
+  --pasangan-2: #E69F00;
+  --pasangan-3: #009E73;
+  --pasangan-4: #CC79A7;
+  --pasangan-5: #56B4E9;
+
+  /* Ukuran */
+  --radius: 12px;
+  --radius-kecil: 8px;
+  --sentuh: 44px;
+  --bayangan: 0 1px 3px rgb(15 23 42 / 0.08), 0 1px 2px rgb(15 23 42 / 0.06);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --latar: #0B1220;
+    --permukaan: #111A2E;
+    --permukaan-2: #1A2540;
+    --garis: #334155;
+    --garis-lembut: #1E293B;
+    --teks: #E2E8F0;
+    --teks-redup: #94A3B8;
+    --utama: #60A5FA;
+    --utama-teks: #0B1220;
+    --utama-lembut: #1E3A5F;
+
+    --warna-x: #60A5FA;
+    --warna-x-lembut: #1E3A5F;
+    --warna-fx: #FB923C;
+    --warna-fx-lembut: #4A2A12;
+    --warna-kodomain: #94A3B8;
+    --warna-a: #A78BFA;
+    --warna-a-lembut: #2E2350;
+    --warna-b: #34D399;
+    --warna-b-lembut: #0F3B2E;
+    --benar: #4ADE80;
+    --benar-lembut: #12331F;
+    --salah: #F87171;
+    --salah-lembut: #3F1717;
+    --info-lembut: #0F2A40;
+    --peringatan-lembut: #3B2F0B;
+
+    --pasangan-1: #56B4E9;
+    --pasangan-2: #F0B429;
+    --pasangan-3: #2BC48F;
+    --pasangan-4: #E39AC6;
+    --pasangan-5: #9FD3F5;
+
+    --bayangan: 0 1px 3px rgb(0 0 0 / 0.4);
+  }
+}
