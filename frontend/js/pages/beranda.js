@@ -46,7 +46,7 @@ export function halamanBeranda(wadah, { keMasuk }) {
       const sisa = jumlahAntrean();
       const pesan = sisa
         ? `Masih ada ${sisa} data yang belum terkirim ke server dan akan hilang jika keluar sekarang. Tetap keluar?`
-        : 'Keluar dari FungsiKu? Progres di HP ini akan dihapus (data di server tetap aman).';
+        : 'Keluar dari RelaFun? Progres di HP ini akan dihapus (data di server tetap aman).';
       if (!window.confirm(pesan)) return;
       await keluar();
       keMasuk();
@@ -55,8 +55,7 @@ export function halamanBeranda(wadah, { keMasuk }) {
 
   wadah.append(h('div', { class: 'halaman-beranda' },
     h('section', { class: 'sapaan' },
-      h('h2', {}, `Halo, ${profil?.nama || 'teman'} 👋`),
-      h('p', { class: 'label-kecil' }, `Kelas ${profil?.kode_kelas || '-'}`)),
+      h('h2', {}, `Halo, ${profil?.nama || 'teman'} 👋`)),
     kartuPasang(),
     lanjut
       ? h('a', { class: 'tombol tombol-utama tombol-besar tombol-lanjut', href: `#/modul/${lanjut.nomor}` },

@@ -1,4 +1,4 @@
-/* FungsiKu — gaya mobile-first. Mulai dari 360px, lalu diperluas. */
+/* RelaFun — gaya mobile-first. Mulai dari 360px, lalu diperluas. */
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -193,7 +193,6 @@ table { border-collapse: collapse; }
   border: 1px solid var(--garis);
   border-radius: var(--radius-kecil);
 }
-.input-kode { text-transform: uppercase; letter-spacing: 0.04em; }
 .formulir-masuk .tombol-besar { margin-top: 16px; }
 
 .sapaan h2 { margin-bottom: 0; }

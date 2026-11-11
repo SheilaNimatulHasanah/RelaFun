@@ -1,6 +1,6 @@
 # PRD.md — Product Requirements Document
 
-**Produk:** FungsiKu — Belajar Relasi & Fungsi Bertahap
+**Produk:** RelaFun — Belajar Relasi & Fungsi Bertahap
 **Versi dokumen:** 1.0 (11/11/2026)
 **Penyusun:** Sheila Ni'matul Hasanah (2225250138)
 
@@ -44,7 +44,7 @@ Wawancara siswa S01 (lihat `ANALISIS.md`) menunjukkan bahwa siswa mudah memahami
 - Kebutuhan: langkah kecil, bisa mengulang, contoh yang jelas, cara mengecek jawaban sendiri.
 
 **Persona sekunder — Guru/peneliti**
-- Membagikan kode kelas ke siswa.
+- Membagikan tautan aplikasi ke siswa (tidak perlu kode kelas).
 - Melihat data hasil belajar lewat **dashboard Supabase** (belum ada dasbor guru di aplikasi pada fase ini).
 
 ## 6. Ruang Lingkup Fitur
@@ -53,7 +53,7 @@ Wawancara siswa S01 (lihat `ANALISIS.md`) menunjukkan bahwa siswa mudah memahami
 
 | ID | Fitur | Keterangan | Prioritas |
 |---|---|---|---|
-| U1 | Masuk dengan nama + kode kelas | `POST /api/masuk` (Flask) memvalidasi kode kelas, membuat data siswa, dan memberi sesi cookie | Wajib |
+| U1 | Masuk dengan nama panggilan | `POST /api/masuk` (Flask) memvalidasi nama, membuat data siswa, dan memberi sesi cookie; **tanpa kode kelas** sehingga siapa pun bisa langsung belajar | Wajib |
 | U2 | Beranda & daftar modul | Menampilkan modul, status (belum/sedang/selesai), lanjutkan dari langkah terakhir | Wajib |
 | U3 | Mini-review prasyarat | Operasi bilangan bulat (tanda negatif), substitusi, eliminasi sederhana; bisa dilewati jika lulus tes singkat | Wajib |
 | U4 | Petunjuk bertingkat | Hint 1 (arah), Hint 2 (langkah), Hint 3 (contoh serupa); jumlah hint dicatat | Wajib |
@@ -124,7 +124,7 @@ Setiap modul mengikuti alur: **Pengantar → Eksplorasi → Contoh → Latihan �
 | Hosting | Vercel paket Hobby (gratis, HTTPS otomatis): CDN untuk file PWA + fungsi Python serverless untuk Flask, region Singapura |
 | Aksesibilitas | Kontras teks memenuhi WCAG AA; area sentuh ≥ 44px; warna tidak menjadi satu-satunya penanda (ada label/pola) |
 | Keandalan | Tetap bisa belajar saat offline sementara; jawaban diantrekan dan dikirim ulang |
-| Keamanan & privasi | Supabase hanya diakses server Flask (service_role key di `.env`, tidak di repo/klien); RLS aktif tanpa akses publik; cookie sesi HttpOnly + Secure; hanya menyimpan nama panggilan + kode kelas |
+| Keamanan & privasi | Supabase hanya diakses server Flask (service_role key di `.env`, tidak di repo/klien); RLS aktif tanpa akses publik; cookie sesi HttpOnly + Secure; hanya menyimpan nama panggilan |
 | Bahasa | Bahasa Indonesia baku sederhana, kalimat pendek |
 
 ## 8. Asumsi & Risiko
@@ -136,5 +136,6 @@ Setiap modul mengikuti alur: **Pengantar → Eksplorasi → Contoh → Latihan �
 | Proyek Supabase gratis dijeda setelah ±1 minggu tidak aktif | Masuk & simpan data gagal | Buka dashboard Supabase dan *Restore* sebelum uji coba kelas; data tetap aman |
 | iPhone tidak menampilkan tombol pasang otomatis | Siswa iPhone tidak tahu cara memasang | Kartu panduan "Bagikan → Tambahkan ke Layar Utama" + halaman `#/pasang` |
 | Batas paket gratis Supabase/Vercel | Layanan terhenti | Uji kapasitas sebelum uji coba kelas; data penelitian rutin diekspor ke CSV |
+| Tanpa kode kelas, siapa pun yang punya tautan bisa masuk | Data penelitian tercampur pengguna non-sampel | Catat waktu uji coba & daftar nama peserta; saring data berdasarkan `dibuat_pada` dan nama saat ekspor; pembatas percobaan masuk per IP tetap aktif |
 | Data dari satu informan | Kebutuhan kurang lengkap | Validasi ahli dan uji coba perorangan sebelum uji kelompok |
 | Drag-and-drop sulit di layar kecil | Frustrasi | Alternatif ketuk-ketuk (ketuk anggota A lalu ketuk anggota B) |

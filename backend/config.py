@@ -39,7 +39,7 @@ def buat_config() -> dict:
         "SUPABASE_URL": os.getenv("SUPABASE_URL", "").strip(),
         "SUPABASE_SERVICE_KEY": os.getenv("SUPABASE_SERVICE_KEY", "").strip(),
         # Cookie sesi siswa
-        "SESSION_COOKIE_NAME": "fungsiku_sesi",
+        "SESSION_COOKIE_NAME": "relafun_sesi",
         "SESSION_COOKIE_HTTPONLY": True,
         "SESSION_COOKIE_SAMESITE": "Lax",
         "SESSION_COOKIE_SECURE": cookie_aman,

@@ -25,7 +25,7 @@ const keMasuk = () => pergi('#/masuk');
 
 function aturKepala(teks, bisaKembali) {
   judul().textContent = teks;
-  document.title = teks === 'FungsiKu' ? 'FungsiKu – Relasi & Fungsi' : `${teks} · FungsiKu`;
+  document.title = teks === 'RelaFun' ? 'RelaFun – Relasi & Fungsi' : `${teks} · RelaFun`;
   tombolKembali().hidden = !bisaKembali;
 }
 
@@ -47,7 +47,7 @@ function tampilkan() {
       window.location.replace('#/masuk');
       return;
     }
-    aturKepala('FungsiKu', false);
+    aturKepala('RelaFun', false);
     halamanMasuk(el, { keBeranda });
     return;
   }
@@ -80,7 +80,7 @@ function tampilkan() {
     window.location.replace('#/beranda');
     return;
   }
-  aturKepala('FungsiKu', false);
+  aturKepala('RelaFun', false);
   halamanBeranda(el, { keMasuk });
 }
 

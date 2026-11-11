@@ -4,38 +4,42 @@ def test_kesehatan(klien):
     assert respons.get_json()["data"]["status"] == "hidup"
 
 
-def test_masuk_berhasil_dan_kode_kelas_tidak_peka_huruf(klien):
-    respons = klien.post("/api/masuk", json={"nama": "  Rina   Ayu ", "kode_kelas": " demo "})
+def test_masuk_cukup_nama(klien):
+    respons = klien.post("/api/masuk", json={"nama": "  Rina   Ayu "})
     assert respons.status_code == 201
     siswa = respons.get_json()["data"]["siswa"]
     assert siswa["nama"] == "Rina Ayu"
-    assert siswa["kode_kelas"] == "DEMO"
+    assert "kode_kelas" not in siswa
 
     saya = klien.get("/api/saya")
     assert saya.status_code == 200
     assert saya.get_json()["data"]["siswa"]["id"] == siswa["id"]
 
 
-def test_masuk_kode_kelas_salah(klien):
-    respons = klien.post("/api/masuk", json={"nama": "Rina", "kode_kelas": "SALAH"})
-    assert respons.status_code == 404
-    assert "Kode kelas" in respons.get_json()["pesan"]
+def test_masuk_kode_kelas_diabaikan(klien):
+    respons = klien.post("/api/masuk", json={"nama": "Rina", "kode_kelas": "SEMBARANG"})
+    assert respons.status_code == 201
 
 
 def test_masuk_nama_kosong(klien):
-    assert klien.post("/api/masuk", json={"nama": "   ", "kode_kelas": "DEMO"}).status_code == 400
+    assert klien.post("/api/masuk", json={"nama": "   "}).status_code == 400
+    assert klien.post("/api/masuk", json={}).status_code == 400
+
+
+def test_masuk_nama_terlalu_panjang(klien):
+    assert klien.post("/api/masuk", json={"nama": "a" * 41}).status_code == 400
 
 
 def test_masuk_harus_json(klien):
-    respons = klien.post("/api/masuk", data={"nama": "Rina", "kode_kelas": "DEMO"})
+    respons = klien.post("/api/masuk", data={"nama": "Rina"})
     assert respons.status_code == 400
 
 
 def test_masuk_dibatasi_per_menit(klien, app):
     batas = app.config["BATAS_MASUK_PER_MENIT"]
     for _ in range(batas):
-        klien.post("/api/masuk", json={"nama": "x", "kode_kelas": "SALAH"})
-    assert klien.post("/api/masuk", json={"nama": "x", "kode_kelas": "DEMO"}).status_code == 429
+        klien.post("/api/masuk", json={"nama": ""})
+    assert klien.post("/api/masuk", json={"nama": "x"}).status_code == 429
 
 
 def test_rute_terlindungi_tanpa_sesi(klien):

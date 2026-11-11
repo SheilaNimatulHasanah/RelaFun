@@ -22,7 +22,7 @@ from dotenv import load_dotenv  # noqa: E402
 
 from backend.db import RepoSupabase  # noqa: E402
 
-TABEL = ["kelas", "siswa", "progres_modul", "jawaban", "skala_beban"]
+TABEL = ["siswa", "progres_modul", "jawaban", "skala_beban"]
 
 
 def tulis_csv(path: Path, baris: list[dict]) -> None:

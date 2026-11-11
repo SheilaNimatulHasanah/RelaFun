@@ -8,7 +8,6 @@ Centang `[x]` setiap tugas yang selesai. Kerjakan berurutan; setiap fase diakhir
 - [x] Buat `.env.example` dan `.gitignore` (`.env`, `.venv/`, `__pycache__/`).
 - [x] Konfigurasi deploy Vercel: `vercel.json`, `api/index.py`, `.vercelignore`, `.python-version` (+ `test_vercel.py`).
 - [ ] Buat proyek Supabase (region **Southeast Asia (Singapore)**); jalankan `supabase/schema.sql` (tabel + RLS sesuai `DESAIN.md` §9).
-- [ ] Isi beberapa kode kelas uji di tabel `kelas`.
 - [ ] Isi `.env` (SUPABASE_URL, SUPABASE_SERVICE_KEY, SECRET_KEY acak).
 - [ ] Inisialisasi Git & repositori GitHub (dibutuhkan untuk deploy Vercel otomatis).
 - [ ] Buat akun Vercel (paket Hobby, gratis) dengan login GitHub.
@@ -17,10 +16,10 @@ Centang `[x]` setiap tugas yang selesai. Kerjakan berurutan; setiap fase diakhir
 ## Fase 1 — Kerangka Backend (Python) & Frontend (JavaScript)
 - [x] `backend/app.py` (`create_app`, menyajikan `frontend/` di root), `config.py`, `db.py`.
 - [x] `backend/routes.py`: `/api/kesehatan`, `/api/masuk`, `/api/saya`, `/api/keluar`.
-- [x] Tes `test_api.py` untuk rute masuk (kode kelas valid/tidak valid, input kosong).
+- [x] Tes `test_api.py` untuk rute masuk (nama valid, nama kosong/terlalu panjang, pembatas percobaan).
 - [x] `frontend/index.html`, `css/tokens.css`, `css/style.css` (mobile-first, mode gelap).
 - [x] `js/router.js`, `js/main.js`, `js/api.js`, `js/auth.js`.
-- [x] Halaman **Masuk** (nama + kode kelas) dan **Beranda** (daftar modul + status).
+- [x] Halaman **Masuk** (cukup nama panggilan; kode kelas dihapus agar semua siswa bisa langsung belajar) dan **Beranda** (daftar modul + status).
 - [x] Pola layar standar (bilah atas, progres langkah, tombol Kembali/Lanjut).
 
 ## Fase 2 — PWA (bisa dipasang tanpa Play Store/App Store)

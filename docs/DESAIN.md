@@ -91,7 +91,7 @@ Modul dibuka berurutan (modul berikutnya terbuka setelah kuis modul sebelumnya d
 
 ```
 ┌───────────────────────────────────────────────────────────┐
-│ FungsiKu   Modul 4 · Mesin Fungsi        langkah 5 dari 8 │
+│ RelaFun   Modul 4 · Mesin Fungsi        langkah 5 dari 8 │
 ├───────────────────────────┬───────────────────────────────┤
 │ PERTANYAAN / INSTRUKSI    │                               │
 │                           │     [ VISUAL / DIAGRAM ]      │
@@ -107,10 +107,10 @@ Modul dibuka berurutan (modul berikutnya terbuka setelah kuis modul sebelumnya d
 
 ```
 ┌──────────────────────────────┐
-│ FungsiKu        Halo, Rina 👋 │
+│ RelaFun        Halo, Rina 👋 │
 ├──────────────────────────────┤
 │ ┌──────────────────────────┐ │
-│ │ 📲 Pasang FungsiKu di HP │ │  ← muncul hanya jika belum terpasang
+│ │ 📲 Pasang RelaFun di HP │ │  ← muncul hanya jika belum terpasang
 │ │ Bisa dibuka tanpa sinyal │ │
 │ │ [ Pasang ]   [ Nanti ]   │ │
 │ └──────────────────────────┘ │
@@ -234,8 +234,8 @@ Catatan: kemampuan **offline** juga mengurangi beban ekstra — siswa tidak terg
 
 ```json
 {
-  "name": "FungsiKu – Relasi & Fungsi",
-  "short_name": "FungsiKu",
+  "name": "RelaFun – Relasi & Fungsi",
+  "short_name": "RelaFun",
   "description": "Belajar relasi dan fungsi bertahap untuk SMP",
   "lang": "id",
   "start_url": "/",
@@ -263,7 +263,7 @@ Di `index.html`: `<link rel="manifest">`, `<meta name="theme-color">`, `<link re
 | `/api/*` | Network-only | Data tidak boleh basi; jika gagal → antrean offline |
 | Navigasi saat offline & belum ter-cache | `offline.html` | Pesan ramah "Kamu sedang offline" |
 
-- Nama cache memakai versi (`fungsiku-v1`); saat versi naik, cache lama dihapus di event `activate`.
+- Nama cache memakai versi (`relafun-v1`); saat versi naik, cache lama dihapus di event `activate`.
 - Jika ada versi baru, tampilkan pesan kecil "Versi baru tersedia — [Muat ulang]" (siswa yang memutuskan, sesuai prinsip tempo siswa).
 
 ### 7.3 Alur Pemasangan (`install.js`)
@@ -273,7 +273,7 @@ Aplikasi dibuka
   ├─ sudah berjalan standalone (sudah terpasang)? ── ya ──► sembunyikan kartu pasang
   │
   ├─ Android/desktop Chrome/Edge: event `beforeinstallprompt`
-  │     └─ simpan event → tampilkan kartu "📲 Pasang FungsiKu"
+  │     └─ simpan event → tampilkan kartu "📲 Pasang RelaFun"
   │           └─ ketuk [Pasang] → prompt() → catat hasil (diterima/ditolak)
   │
   └─ iPhone/iPad (Safari, tidak ada prompt otomatis)
@@ -287,7 +287,7 @@ Aplikasi dibuka
 ### 7.4 Antrean Offline (`offlineQueue.js`)
 
 - Setiap pengiriman (`simpanJawaban`, `simpanProgres`, `simpanSkalaBeban`) mencoba `fetch` ke API.
-- Jika gagal (offline/server tidur): data disimpan di localStorage kunci `antrean_fungsiku` (try/catch), lalu dikirim **batch** ke `POST /api/jawaban` saat event `online`, saat aplikasi dibuka, atau setiap 60 detik.
+- Jika gagal (offline/server tidur): data disimpan di localStorage kunci `antrean_relafun` (try/catch), lalu dikirim **batch** ke `POST /api/jawaban` saat event `online`, saat aplikasi dibuka, atau setiap 60 detik.
 - Indikator di bilah atas: "✓ Tersimpan" / "⏳ Menunggu sinyal…".
 - Kuis yang dikerjakan offline: skor sementara dihitung JS dan ditandai "menunggu konfirmasi"; skor resmi dari server setelah tersinkron.
 
@@ -319,15 +319,9 @@ Aplikasi dibuka
 ### 9.1 Tabel
 
 ```
-kelas
-  kode_kelas     text  PRIMARY KEY      -- mis. "9B-SMPN1"
-  nama_sekolah   text
-  dibuat_pada    timestamptz default now()
-
-siswa
+siswa                                   -- tanpa kode kelas: siapa pun bisa masuk dengan nama
   id             uuid  PRIMARY KEY default gen_random_uuid()   -- dibuat oleh Flask
   nama           text  not null check (char_length(nama) between 1 and 40)
-  kode_kelas     text  references kelas(kode_kelas)
   dibuat_pada    timestamptz default now()
 
 progres_modul
@@ -377,10 +371,10 @@ Buka aplikasi
                 │
                401
                 ▼
-  Form: Nama panggilan + Kode kelas
+  Form: Nama panggilan (tanpa kode kelas)
   └─ POST /api/masuk
-        ├─ kode kelas tidak ada ──► 404 "Kode kelas tidak ditemukan, tanya gurumu"
-        └─ ada ──► insert `siswa` → set cookie sesi → #/beranda
+        ├─ nama kosong / > 40 huruf ──► 400 "Nama panggilan harus diisi"
+        └─ valid ──► insert `siswa` → set cookie sesi → #/beranda
 ```
 
 ## 10. Desain API (Flask)
@@ -390,7 +384,7 @@ Semua respons JSON: sukses `{"ok": true, "data": ...}`, gagal `{"ok": false, "pe
 | Metode | Rute | Masukan | Keluaran | Sesi |
 |---|---|---|---|---|
 | GET | `/api/kesehatan` | — | `{"status": "hidup"}` | tidak |
-| POST | `/api/masuk` | `{nama, kode_kelas}` | profil siswa | tidak |
+| POST | `/api/masuk` | `{nama}` | profil siswa `{id, nama}` | tidak |
 | GET | `/api/saya` | — | profil + progres semua modul | ya |
 | POST | `/api/keluar` | — | — | ya |
 | PUT | `/api/progres/<modul>` | `{langkah_terakhir, selesai}` | progres | ya |

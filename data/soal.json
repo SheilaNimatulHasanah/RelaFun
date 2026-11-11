@@ -1,6 +1,6 @@
 {
   "versi": 1,
-  "keterangan": "Bank soal FungsiKu. Dipakai frontend (umpan balik latihan) dan backend (penilaian kuis). Tipe: angka, pilihan, himpunan, buat_relasi, perbaiki_fungsi, rumus, isian, sorot.",
+  "keterangan": "Bank soal RelaFun. Dipakai frontend (umpan balik latihan) dan backend (penilaian kuis). Tipe: angka, pilihan, himpunan, buat_relasi, perbaiki_fungsi, rumus, isian, sorot.",
   "soal": [
     {
       "id": "m0-l1", "modul": 0, "jenis": "latihan", "tipe": "angka",

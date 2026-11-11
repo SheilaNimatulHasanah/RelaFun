@@ -1,4 +1,4 @@
-// Titik masuk aplikasi FungsiKu.
+// Titik masuk aplikasi RelaFun.
 
 import './install.js'; // dimuat paling awal agar event "beforeinstallprompt" tidak terlewat
 import { api } from './api.js';
@@ -12,7 +12,7 @@ function daftarkanServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
   const adaKontrolerAwal = Boolean(navigator.serviceWorker.controller);
 
-  const tawarkanPembaruan = (sw) => beriTahu('Versi baru FungsiKu tersedia.', {
+  const tawarkanPembaruan = (sw) => beriTahu('Versi baru RelaFun tersedia.', {
     tombol: 'Muat ulang',
     aksi: () => sw.postMessage({ tipe: 'LEWATI_TUNGGU' }),
     lama: 0,
@@ -69,7 +69,7 @@ async function mulai() {
     document.getElementById('aplikasi').replaceChildren(
       h('div', { class: 'kartu' },
         h('h2', {}, 'Aplikasi belum bisa dimuat'),
-        h('p', {}, 'Sambungkan HP ke internet, lalu muat ulang halaman ini. Setelah dibuka sekali, FungsiKu bisa dipakai tanpa sinyal.'),
+        h('p', {}, 'Sambungkan HP ke internet, lalu muat ulang halaman ini. Setelah dibuka sekali, RelaFun bisa dipakai tanpa sinyal.'),
         h('button', { class: 'tombol tombol-utama', type: 'button', onclick: () => window.location.reload() }, 'Muat ulang')));
     return;
   }

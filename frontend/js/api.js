@@ -46,7 +46,7 @@ async function panggil(metode, path, body, { batasWaktu = 20000 } = {}) {
 
 export const api = {
   kesehatan: () => panggil('GET', '/api/kesehatan', undefined, { batasWaktu: 60000 }),
-  masuk: (nama, kodeKelas) => panggil('POST', '/api/masuk', { nama, kode_kelas: kodeKelas }, { batasWaktu: 60000 }),
+  masuk: (nama) => panggil('POST', '/api/masuk', { nama }, { batasWaktu: 60000 }),
   saya: () => panggil('GET', '/api/saya'),
   keluar: () => panggil('POST', '/api/keluar'),
   progres: (modul, langkahTerakhir) => panggil('PUT', `/api/progres/${modul}`, { langkah_terakhir: langkahTerakhir }),

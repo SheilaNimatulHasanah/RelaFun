@@ -7,7 +7,7 @@ Baca juga dokumen di folder `docs/` sebelum mengerjakan fitur baru.
 
 | Item | Keterangan |
 |---|---|
-| Nama kerja | **FungsiKu** — Belajar Relasi & Fungsi Bertahap |
+| Nama kerja | **RelaFun** — Belajar Relasi & Fungsi Bertahap |
 | Pengembang | Sheila Ni'matul Hasanah (NIM 2225250138), Pendidikan Matematika |
 | Mata kuliah | Algoritma dan Pemrograman — Dosen: Dr. Aan Hendrayana, S.Si., M.Pd. |
 | Materi | Relasi dan Fungsi (SMP Kelas VIII) |
@@ -57,7 +57,7 @@ aplikasi Flask yang **sama persis** dengan di laptop.
 
 ### 3.3 Backend — Python (folder `backend/`)
 - **Python 3.11+** dengan **Flask**.
-- Tugas backend: menyajikan file PWA, API JSON (`/api/...`), masuk siswa (nama + kode kelas) dengan **sesi cookie Flask** yang ditandatangani, **penilaian kuis di server** (`penilaian.py`), dan menyimpan data ke Supabase.
+- Tugas backend: menyajikan file PWA, API JSON (`/api/...`), masuk siswa (cukup nama panggilan, tanpa kode kelas) dengan **sesi cookie Flask** yang ditandatangani, **penilaian kuis di server** (`penilaian.py`), dan menyimpan data ke Supabase.
 - Akses Supabase memakai library `supabase` (supabase-py) dengan **service_role key** yang **hanya** ada di file `.env` (laptop) atau Environment Variables Vercel. `.env` **tidak boleh** masuk Git.
 - Backend bersifat **stateless** (cocok untuk serverless Vercel): tidak menyimpan data di memori/berkas server. Sesi ada di cookie bertanda tangan, data di Supabase. Pembatas percobaan masuk hanya per instance (perlindungan ringan).
 - Di Vercel (`VERCEL=1`), aplikasi **menolak berjalan** tanpa `SECRET_KEY` atau tanpa Supabase (MODE DEMO hanya untuk laptop).
@@ -154,7 +154,7 @@ Setiap layar/fitur baru **wajib** lolos daftar periksa ini. Kode dalam kurung me
 - Warna hanya dari variabel CSS di `css/tokens.css`.
 - Ukuran area sentuh minimal **44 × 44 px**.
 - Gunakan `textContent` (bukan `innerHTML`) untuk menampilkan input siswa.
-- Setiap kali aset frontend berubah, **naikkan versi cache** di `service-worker.js` (`const VERSI_CACHE = 'fungsiku-v2'`).
+- Setiap kali aset frontend berubah, **naikkan versi cache** di `service-worker.js` (`const VERSI_CACHE = 'relafun-v2'`).
 
 ### Python
 - Ikuti **PEP 8**; nama fungsi/variabel `snake_case` berbahasa Indonesia (`hitung_skor_kuis`, `simpan_jawaban`).
@@ -167,7 +167,7 @@ Setiap layar/fitur baru **wajib** lolos daftar periksa ini. Kode dalam kurung me
 
 ### 7.1 Persiapan (sekali)
 1. Instal **Python 3.11+** dan **VS Code**.
-2. Buat proyek di Supabase → jalankan `supabase/schema.sql` di SQL Editor → isi beberapa kode kelas di tabel `kelas`.
+2. Buat proyek di Supabase → jalankan `supabase/schema.sql` di SQL Editor.
 3. Di folder proyek:
    ```bash
    python -m venv .venv
@@ -182,7 +182,7 @@ Setiap layar/fitur baru **wajib** lolos daftar periksa ini. Kode dalam kurung me
 ```
 Buka `http://localhost:5000`.
 
-- **MODE DEMO**: jika `SUPABASE_URL`/`SUPABASE_SERVICE_KEY` kosong, data disimpan di memori server (hilang saat server dimatikan). Masuk dengan kode kelas **`DEMO`**.
+- **MODE DEMO**: jika `SUPABASE_URL`/`SUPABASE_SERVICE_KEY` kosong, data disimpan di memori server (hilang saat server dimatikan). Masuk cukup dengan nama panggilan.
 - **Cache service worker saat mengembangkan**: tampilan diambil dari cache HP/browser. Setelah mengubah file frontend, di Chrome DevTools → Application → Service Workers centang **Update on reload**, atau naikkan `VERSI_CACHE` di `service-worker.js`. Untuk rilis, `VERSI_CACHE` **wajib** dinaikkan.
 - Setiap file JS baru wajib ditambahkan ke daftar `ASET` di `service-worker.js` (dicek oleh `test_pwa.py`).
 - Ikon dibuat ulang dengan `python scripts/buat_ikon.py`.

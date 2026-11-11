@@ -116,24 +116,14 @@ def masuk():
         return gagal("Data tidak valid.")
 
     nama = " ".join(str(data.get("nama", "")).split())
-    kode_kelas = str(data.get("kode_kelas", "")).strip().upper()
     if not 1 <= len(nama) <= 40:
         return gagal("Nama panggilan harus diisi (maksimal 40 huruf).")
-    if not 1 <= len(kode_kelas) <= 20:
-        return gagal("Kode kelas harus diisi.")
 
-    if repo().cari_kelas(kode_kelas) is None:
-        return gagal("Kode kelas tidak ditemukan. Tanyakan kode yang benar kepada gurumu.", 404)
-
-    siswa = repo().buat_siswa(nama, kode_kelas)
+    siswa = repo().buat_siswa(nama)
     session.clear()
     session.permanent = True
     session["siswa_id"] = str(siswa["id"])
-    return sukses(
-        {"siswa": {"id": str(siswa["id"]), "nama": siswa["nama"], "kode_kelas": siswa["kode_kelas"]},
-         "progres": []},
-        201,
-    )
+    return sukses({"siswa": {"id": str(siswa["id"]), "nama": siswa["nama"]}, "progres": []}, 201)
 
 
 @api.get("/saya")
@@ -152,10 +142,7 @@ def saya(siswa_id: str):
         }
         for p in repo().ambil_progres(siswa_id)
     ]
-    return sukses(
-        {"siswa": {"id": str(siswa["id"]), "nama": siswa["nama"], "kode_kelas": siswa["kode_kelas"]},
-         "progres": progres}
-    )
+    return sukses({"siswa": {"id": str(siswa["id"]), "nama": siswa["nama"]}, "progres": progres})
 
 
 @api.post("/keluar")

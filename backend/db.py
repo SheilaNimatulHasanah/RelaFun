@@ -41,8 +41,7 @@ def gabung_progres(lama: dict | None, baru: dict) -> dict:
 
 
 class Repo(Protocol):
-    def cari_kelas(self, kode_kelas: str) -> dict | None: ...
-    def buat_siswa(self, nama: str, kode_kelas: str) -> dict: ...
+    def buat_siswa(self, nama: str) -> dict: ...
     def ambil_siswa(self, siswa_id: str) -> dict | None: ...
     def ambil_progres(self, siswa_id: str) -> list[dict]: ...
     def simpan_progres(self, siswa_id: str, modul: int, data: dict) -> dict: ...
@@ -54,28 +53,16 @@ class Repo(Protocol):
 class RepoMemori:
     """Penyimpanan sementara di memori (MODE DEMO dan pengujian otomatis)."""
 
-    def __init__(self, kode_kelas_awal: tuple[str, ...] = ("DEMO",)) -> None:
+    def __init__(self) -> None:
         self._kunci = threading.Lock()
-        self.kelas = {
-            k: {"kode_kelas": k, "nama_sekolah": "Kelas percobaan", "dibuat_pada": _sekarang()}
-            for k in kode_kelas_awal
-        }
         self.siswa: dict[str, dict] = {}
         self.progres: dict[tuple[str, int], dict] = {}
         self.jawaban: dict[str, dict] = {}
         self.skala: dict[str, dict] = {}
 
-    def cari_kelas(self, kode_kelas: str) -> dict | None:
-        return deepcopy(self.kelas.get(kode_kelas))
-
-    def buat_siswa(self, nama: str, kode_kelas: str) -> dict:
+    def buat_siswa(self, nama: str) -> dict:
         with self._kunci:
-            baris = {
-                "id": str(uuid.uuid4()),
-                "nama": nama,
-                "kode_kelas": kode_kelas,
-                "dibuat_pada": _sekarang(),
-            }
+            baris = {"id": str(uuid.uuid4()), "nama": nama, "dibuat_pada": _sekarang()}
             self.siswa[baris["id"]] = baris
             return deepcopy(baris)
 
@@ -111,7 +98,6 @@ class RepoMemori:
 
     def ambil_tabel(self, nama_tabel: str) -> list[dict]:
         sumber = {
-            "kelas": self.kelas.values(),
             "siswa": self.siswa.values(),
             "progres_modul": self.progres.values(),
             "jawaban": self.jawaban.values(),
@@ -131,12 +117,8 @@ class RepoSupabase:
     def _tabel(self, nama: str):
         return self.klien.table(nama)
 
-    def cari_kelas(self, kode_kelas: str) -> dict | None:
-        hasil = self._tabel("kelas").select("*").eq("kode_kelas", kode_kelas).limit(1).execute()
-        return hasil.data[0] if hasil.data else None
-
-    def buat_siswa(self, nama: str, kode_kelas: str) -> dict:
-        hasil = self._tabel("siswa").insert({"nama": nama, "kode_kelas": kode_kelas}).execute()
+    def buat_siswa(self, nama: str) -> dict:
+        hasil = self._tabel("siswa").insert({"nama": nama}).execute()
         return hasil.data[0]
 
     def ambil_siswa(self, siswa_id: str) -> dict | None:
@@ -145,7 +127,7 @@ class RepoSupabase:
         except (ValueError, TypeError):
             return None
         hasil = (
-            self._tabel("siswa").select("id,nama,kode_kelas").eq("id", siswa_id).limit(1).execute()
+            self._tabel("siswa").select("id,nama").eq("id", siswa_id).limit(1).execute()
         )
         return hasil.data[0] if hasil.data else None
 

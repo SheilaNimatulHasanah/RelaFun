@@ -60,7 +60,7 @@ def create_app(pengaturan: dict | None = None, repo: Any = None) -> Flask:
     app.extensions["repo"] = repo
     app.config["MODE_DEMO"] = isinstance(repo, RepoMemori)
     if app.config["MODE_DEMO"] and not app.config.get("TESTING"):
-        log.warning("MODE DEMO: Supabase belum diatur. Data hanya di memori; kode kelas: DEMO")
+        log.warning("MODE DEMO: Supabase belum diatur. Data hanya di memori dan hilang saat server dimatikan.")
 
     app.register_blueprint(api)
 

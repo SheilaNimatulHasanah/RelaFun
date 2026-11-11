@@ -1,1 +1,1 @@
-"""Backend Flask aplikasi FungsiKu."""
+"""Backend Flask aplikasi RelaFun."""

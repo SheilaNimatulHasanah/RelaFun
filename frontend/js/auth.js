@@ -5,9 +5,9 @@ import { api, GalatApi } from './api.js';
 import { antre, aturPenangan, kosongkanAntrean } from './offlineQueue.js';
 import { simpanan } from './ui.js';
 
-const KUNCI_PROFIL = 'fungsiku_profil';
-const KUNCI_PROGRES = 'fungsiku_progres';
-const KUNCI_TERAKHIR = 'fungsiku_modul_terakhir';
+const KUNCI_PROFIL = 'relafun_profil';
+const KUNCI_PROGRES = 'relafun_progres';
+const KUNCI_TERAKHIR = 'relafun_modul_terakhir';
 
 let profil = simpanan.baca(KUNCI_PROFIL);
 let progres = simpanan.baca(KUNCI_PROGRES, {}) || {};
@@ -66,8 +66,8 @@ function hapusLokal() {
   simpanLokal();
 }
 
-export async function masuk(nama, kodeKelas) {
-  const data = await api.masuk(nama, kodeKelas);
+export async function masuk(nama) {
+  const data = await api.masuk(nama);
   kosongkanAntrean();
   profil = data.siswa;
   progres = {};

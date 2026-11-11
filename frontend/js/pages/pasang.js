@@ -9,7 +9,7 @@ export function halamanPasang(wadah) {
   function gambarStatus() {
     status.replaceChildren();
     if (sudahTerpasang()) {
-      status.append(kotakInfo('info', '✅ FungsiKu sudah terpasang dan sedang berjalan sebagai aplikasi.'));
+      status.append(kotakInfo('info', '✅ RelaFun sudah terpasang dan sedang berjalan sebagai aplikasi.'));
     } else if (bisaPasangOtomatis()) {
       status.append(h('button', {
         class: 'tombol tombol-utama tombol-besar', type: 'button',
@@ -25,7 +25,7 @@ export function halamanPasang(wadah) {
   const ios = h('section', { class: 'kartu' }, h('h3', {}, '🍎 iPhone / iPad'), panduanIOS());
 
   wadah.append(h('div', { class: 'halaman-pasang' },
-    h('p', {}, 'FungsiKu bisa dipasang seperti aplikasi biasa ', h('strong', {}, 'tanpa Play Store atau App Store'), '. Setelah dipasang, ikon FungsiKu muncul di layar HP dan bisa dibuka walaupun tanpa sinyal.'),
+    h('p', {}, 'RelaFun bisa dipasang seperti aplikasi biasa ', h('strong', {}, 'tanpa Play Store atau App Store'), '. Setelah dipasang, ikon RelaFun muncul di layar HP dan bisa dibuka walaupun tanpa sinyal.'),
     status,
     ...(adalahIOS() ? [ios, android] : [android, ios]),
     h('section', { class: 'kartu' }, h('h3', {}, '💻 Laptop'),

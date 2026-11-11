@@ -4,7 +4,7 @@
 
 import { h, simpanan } from './ui.js';
 
-const KUNCI_TUNDA = 'fungsiku_tunda_pasang';
+const KUNCI_TUNDA = 'relafun_tunda_pasang';
 let peristiwaPasang = null;
 const pendengar = new Set();
 
@@ -67,7 +67,7 @@ export function panduanAndroid() {
   return h('ol', { class: 'daftar-langkah' },
     h('li', {}, 'Buka aplikasi ini di ', h('strong', {}, 'Chrome'), '.'),
     h('li', {}, 'Ketuk tombol ', h('strong', {}, '📲 Pasang'), ' di aplikasi, atau menu ', h('strong', {}, '⋮'), ' → ', h('strong', {}, 'Instal aplikasi / Tambahkan ke layar utama'), '.'),
-    h('li', {}, 'Ikon FungsiKu akan muncul di layar HP seperti aplikasi biasa.'),
+    h('li', {}, 'Ikon RelaFun akan muncul di layar HP seperti aplikasi biasa.'),
   );
 }
 
@@ -101,7 +101,7 @@ export function kartuPasang() {
     }
 
     wadah.append(h('section', { class: 'kartu kartu-pasang', 'aria-label': 'Pasang aplikasi' },
-      h('h2', { class: 'judul-kartu' }, '📲 Pasang FungsiKu di HP-mu'),
+      h('h2', { class: 'judul-kartu' }, '📲 Pasang RelaFun di HP-mu'),
       h('p', {}, 'Tanpa Play Store. Muncul sebagai ikon di layar HP dan tetap bisa dibuka tanpa sinyal.'),
       isi,
     ));

@@ -4,7 +4,7 @@
 import { api, GalatApi } from './api.js';
 import { idAcak, simpanan } from './ui.js';
 
-const KUNCI = 'antrean_fungsiku';
+const KUNCI = 'antrean_relafun';
 const UKURAN_BATCH = 50;
 
 let antrean = simpanan.baca(KUNCI, []);

@@ -1,7 +1,7 @@
-// Service worker FungsiKu: menyimpan tampilan aplikasi di HP agar terbuka instan dan bisa offline.
+// Service worker RelaFun: menyimpan tampilan aplikasi di HP agar terbuka instan dan bisa offline.
 // PENTING: naikkan VERSI_CACHE setiap kali ada file frontend yang berubah.
 
-const VERSI_CACHE = 'fungsiku-v1';
+const VERSI_CACHE = 'relafun-v1';
 
 const ASET = [
   '/',
@@ -57,7 +57,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const semua = await caches.keys();
-    await Promise.all(semua.filter((nama) => nama.startsWith('fungsiku-') && nama !== VERSI_CACHE).map((nama) => caches.delete(nama)));
+    await Promise.all(semua.filter((nama) => (nama.startsWith('relafun-') || nama.startsWith('fungsiku-')) && nama !== VERSI_CACHE).map((nama) => caches.delete(nama)));
     await self.clients.claim();
   })());
 });

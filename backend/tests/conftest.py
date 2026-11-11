@@ -7,7 +7,7 @@ from backend.routes import pembatas_masuk
 
 @pytest.fixture
 def repo():
-    return RepoMemori(kode_kelas_awal=("DEMO", "9A-UJI"))
+    return RepoMemori()
 
 
 @pytest.fixture
@@ -23,6 +23,6 @@ def klien(app):
 
 @pytest.fixture
 def klien_masuk(klien):
-    respons = klien.post("/api/masuk", json={"nama": "Rina", "kode_kelas": "demo"})
+    respons = klien.post("/api/masuk", json={"nama": "Rina"})
     assert respons.status_code == 201
     return klien
